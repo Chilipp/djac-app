@@ -1,0 +1,7 @@
+test/*
+.git/*
+screenshots/
+DESCRIPTION.md
+CHANGELOG.md
+CloudronManifest.json
+.env
