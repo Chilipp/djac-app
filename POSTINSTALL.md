@@ -1,6 +1,2 @@
-This app is pre-setup with an admin account. The initial credentials are:
+This app is requires a superadmin account created at the first run.
 
-**Username**: changeme@email.com<br/>
-**Password**: MyPassword<br/>
-
-Please change the admin password immediately.

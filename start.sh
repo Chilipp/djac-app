@@ -13,6 +13,14 @@ if [[ ! -f /app/data/.secret_key ]]; then
 fi
 export SECRET_KEY=$(</app/data/.secret_key)
 
+
+# GUNICORN SERVER RELATED SETTINGS
+# see https://docs.gunicorn.org/en/stable/design.html#how-many-workers for recommended settings
+export GUNICORN_PORT=8080
+export GUNICORN_WORKERS=3
+export GUNICORN_THREADS=2
+
+
 TIMEZONE=$(</etc/timezone)
 
 if [ ! -f /app/data/.env ]; then
@@ -90,7 +98,6 @@ SQL_DEBUG=0
 DEBUG_TOOLBAR=0
 
 ALLOWED_HOSTS="${CLOUDRON_APP_DOMAIN}"
-TANDOOR_PORT=8080
 
 SECRET_KEY=${SECRET_KEY}
 
@@ -134,7 +141,7 @@ AUTH_LDAP_BIND_DN="${CLOUDRON_LDAP_BIND_DN:-}"
 AUTH_LDAP_BIND_PASSWORD="${CLOUDRON_LDAP_BIND_PASSWORD:-}"
 AUTH_LDAP_USER_SEARCH_BASE_DN="${CLOUDRON_LDAP_USERS_BASE_DN:-}"
 AUTH_LDAP_USER_ATTR_MAP="{'uid': 'username', 'first_name': 'givenName', 'last_name': 'sn', 'email': 'mail'}"
-#AUTH_LDAP_USER_SEARCH_FILTER_STR="cn=users,${CLOUDRON_LDAP_GROUPS_BASE_DN:-}"
+AUTH_LDAP_USER_SEARCH_FILTER_STR="(username=%(user)s)"
 
 
 # S3 Media settings: store mediafiles in s3 or any compatible storage backend (e.g. minio)
@@ -152,10 +159,6 @@ AUTH_LDAP_USER_ATTR_MAP="{'uid': 'username', 'first_name': 'givenName', 'last_na
 # when running under the same database
 # SESSION_COOKIE_DOMAIN=.example.com
 # SESSION_COOKIE_NAME=sessionid # use this only to not interfere with non unified django applications under the same top level domain
-
-# GUNICORN SERVER RELATED SETTINGS (see https://docs.gunicorn.org/en/stable/design.html#how-many-workers for recommended settings)
-GUNICORN_WORKERS=3
-GUNICORN_THREADS=2
 
 GUNICORN_MEDIA=0
 
