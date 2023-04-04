@@ -164,15 +164,12 @@ GUNICORN_MEDIA=0
 
 EOF
 
-#set -o allexport
-#source /app/data/.env
-#source /run/tandoor/.env
 cat /app/data/.env >> /run/tandoor/.env
 
 #echo "==> Updating nginx config"
 #cat /app/pkg/tandoor.conf > /run/tandoor/tandoor.conf
 
-#if [ ! -f /app/data/.initialized ]; then
+if [ ! -f /app/data/.initialized ]; then
     echo "==> Migrating database"
 
     # Activate virtual environment
@@ -181,8 +178,8 @@ cat /app/data/.env >> /run/tandoor/.env
     # Initialize Database
     python /app/code/tandoor/manage.py migrate
 
-#    touch /app/data/.initialized
-#fi
+    touch /app/data/.initialized
+fi
 
 
 if [ ! -d  /run/tandoor/static ]; then
