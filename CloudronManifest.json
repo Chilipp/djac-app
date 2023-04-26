@@ -8,7 +8,7 @@
   "upstreamVersion": "1.4.9",
   "memoryLimit": 1073741824,
   "healthCheckPath": "/",
-  "httpPort": 3000,
+  "httpPort": 80,
   "addons": {
     "localstorage": {},
     "postgresql": {},

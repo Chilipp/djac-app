@@ -5,7 +5,7 @@ set -eu
 echo "=> Starting Tandoor"
 
 echo "=> Creating directories"
-mkdir -p /run/tandoor \
+mkdir -p /run/tandoor /run/nginx \
         /app/data/data/staticfiles \
         /app/data/data/media
 
@@ -14,7 +14,6 @@ if [[ ! -f /app/data/.secret_key ]]; then
     openssl rand -base64 42 > /app/data/.secret_key
 fi
 export SECRET_KEY=$(</app/data/.secret_key)
-
 
 # GUNICORN SERVER RELATED SETTINGS
 # see https://docs.gunicorn.org/en/stable/design.html#how-many-workers for recommended settings
@@ -187,7 +186,7 @@ if [ ! -d  /run/tandoor/static ]; then
 fi
 
 echo "=> Changing permissions"
-chown -R cloudron:cloudron /run/tandoor /app/data
+chown -R cloudron:cloudron /app/data /run
 
 echo "=> Starting supervisor"
 exec /usr/bin/supervisord --configuration /etc/supervisor/supervisord.conf --nodaemon -i Tandoor

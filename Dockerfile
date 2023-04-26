@@ -64,16 +64,12 @@ RUN mv /app/code/tandoor/cookbook/static /app/pkg/static && \
 
 RUN chown -R cloudron:cloudron /app/code
 
-RUN rm /etc/nginx/sites-enabled/* && \
-    ln -sf /dev/stdout /var/log/nginx/access.log && \
-    ln -sf /dev/stderr /var/log/nginx/error.log
-COPY config/nginx/tandoor.conf /etc/nginx/sites-enabled/tandoor.conf
-COPY config/nginx/readonlyrootfs.conf /etc/nginx/conf.d/readonlyrootfs.conf
+RUN rm -rf /var/log/nginx && ln -s /run/nginx /var/log/nginx
 
 COPY config/supervisor/* /etc/supervisor/conf.d/
 RUN ln -sf /run/tandoor/supervisord.log /var/log/supervisor/supervisord.log
 
-COPY start.sh /app/pkg/
+COPY start.sh nginx.conf /app/pkg/
 
 RUN chmod +x /app/pkg/start.sh
 
