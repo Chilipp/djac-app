@@ -3,7 +3,7 @@ FROM cloudron/base:4.0.0@sha256:31b195ed0662bdb06a6e8a5ddbedb6f191ce92e8bee04c03
 ARG VERSION=1.4.9
 
 # this will be picked up by asset building and exposed in the UI
-ARG BUILD_REF=7d99a9a9c345ee56d766057f12413b4784032c7b
+# ARG BUILD_REF=7d99a9a9c345ee56d766057f12413b4784032c7b
 
 ENV PYTHONUNBUFFERED 1
 ENV VENV_PATH="/app/code/.venv"
@@ -32,7 +32,7 @@ RUN source ${VENV_PATH}/bin/activate && \
     ${VENV_PATH}/bin/pip install -r requirements.txt --no-cache-dir
 
 RUN echo "VERSION_NUMBER = \"${VERSION}\"" > /app/code/tandoor/recipes/version.py && \
-    echo "BUILD_REF = \"${BUILD_REF}\"" >> /app/code/tandoor/recipes/version.py
+    echo "BUILD_REF = \"${VERSION}\"" >> /app/code/tandoor/recipes/version.py
 
 # build frontend
 WORKDIR /app/code/tandoor/vue
