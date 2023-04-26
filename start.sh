@@ -2,7 +2,9 @@
 
 set -eu
 
-echo "==> Creating directories"
+echo "=> Starting Tandoor"
+
+echo "=> Creating directories"
 mkdir -p /run/tandoor \
         /app/data/data/staticfiles \
         /app/data/data/media
@@ -19,7 +21,6 @@ export SECRET_KEY=$(</app/data/.secret_key)
 export GUNICORN_PORT=8080
 export GUNICORN_WORKERS=3
 export GUNICORN_THREADS=2
-
 
 TIMEZONE=$(</etc/timezone)
 
@@ -91,7 +92,7 @@ SHOPPING_MIN_AUTOSYNC_INTERVAL=5
 EOF
 fi
 
-echo "==> Configuring Tandoor"
+echo "=> Configuring Tandoor"
 cat > /run/tandoor/.env << EOF
 DEBUG=0
 SQL_DEBUG=0
@@ -166,9 +167,6 @@ EOF
 
 cat /app/data/.env >> /run/tandoor/.env
 
-#echo "==> Updating nginx config"
-#cat /app/pkg/tandoor.conf > /run/tandoor/tandoor.conf
-
 if [ ! -f /app/data/.initialized ]; then
     echo "==> Migrating database"
 
@@ -181,7 +179,6 @@ if [ ! -f /app/data/.initialized ]; then
     touch /app/data/.initialized
 fi
 
-
 if [ ! -d  /run/tandoor/static ]; then
     echo "==> Generating static files"
     cp -R /app/pkg/static  /run/tandoor/
@@ -189,9 +186,8 @@ if [ ! -d  /run/tandoor/static ]; then
     python /app/code/tandoor/manage.py collectstatic --noinput
 fi
 
-
-echo "==> Changing permissions"
+echo "=> Changing permissions"
 chown -R cloudron:cloudron /run/tandoor /app/data
 
-echo "==> Starting app"
+echo "=> Starting supervisor"
 exec /usr/bin/supervisord --configuration /etc/supervisor/supervisord.conf --nodaemon -i Tandoor

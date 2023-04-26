@@ -1,9 +1,9 @@
 FROM cloudron/base:4.0.0@sha256:31b195ed0662bdb06a6e8a5ddbedb6f191ce92e8bee04c03fb02dd4e9d0286df
 
-ARG VERSION=1.4.8
-# this will be picked up by asset building and exposed in the UI
-ARG BUILD_REF=4378a6b0c78f80d4e0f3b016ba4f4cf7b8ea5705
+ARG VERSION=1.4.9
 
+# this will be picked up by asset building and exposed in the UI
+ARG BUILD_REF=7d99a9a9c345ee56d766057f12413b4784032c7b
 
 ENV PYTHONUNBUFFERED 1
 ENV VENV_PATH="/app/code/.venv"
@@ -21,20 +21,7 @@ RUN virtualenv -p /usr/bin/python3.10 ${VENV_PATH}
 ENV PATH=${VENV_PATH}/bin:$PATH
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        gcc \
-        musl-dev \
-        zlib1g-dev \
-        libjpeg-dev \
-        libwebp-dev \
-        cargo \
-        libffi-dev \
-        libssl-dev \
-        libsasl2-dev \
-        libldap2-dev \
-        libldap-common \
-        ldap-utils \
-        python3-dev && \
+    apt-get install -y --no-install-recommends musl-dev libwebp-dev cargo libldap-common && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -74,21 +61,15 @@ RUN mv /app/code/tandoor/cookbook/static /app/pkg/static && \
     ln -sf /app/data/data/staticfiles /app/code/tandoor/staticfiles && \
     ln -sf /app/data/data/media /app/code/tandoor/media && \
     ln -sf /run/tandoor/.env /app/code/tandoor/.env
-#    ln -sf /app/data/data/mediafiles /app/code/tandoor/mediafiles
 
-# fix permissions
 RUN chown -R cloudron:cloudron /app/code
 
-# Add nginx config
 RUN rm /etc/nginx/sites-enabled/* && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
-#    ln -sf /run/tandoor/tandoor.conf /etc/nginx/sites-enabled/tandoor.conf
-#COPY config/nginx/tandoor.conf /app/pkg/tandoor.conf
 COPY config/nginx/tandoor.conf /etc/nginx/sites-enabled/tandoor.conf
 COPY config/nginx/readonlyrootfs.conf /etc/nginx/conf.d/readonlyrootfs.conf
 
-# Add supervisor configs
 COPY config/supervisor/* /etc/supervisor/conf.d/
 RUN ln -sf /run/tandoor/supervisord.log /var/log/supervisor/supervisord.log
 

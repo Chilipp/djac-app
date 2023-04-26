@@ -5,9 +5,10 @@
   "description": "file://DESCRIPTION.md",
   "tagline": "Recipe Management",
   "version": "0.1.0",
+  "upstreamVersion": "1.4.9",
   "memoryLimit": 1073741824,
   "healthCheckPath": "/",
-  "httpPort": 80,
+  "httpPort": 3000,
   "addons": {
     "localstorage": {},
     "postgresql": {},
@@ -16,9 +17,12 @@
   },
   "manifestVersion": 2,
   "website": "https://tandoor.dev",
-  "contactEmail": "support@clourdon.io",
+  "contactEmail": "support@cloudron.io",
   "icon": "file://logo.png",
   "tags": [ "recipe", "household", "food", "cooking", "cookbook", "meal-planner" ],
+  "mediaLinks": [
+    "https://screenshots.cloudron.io/dev.tandoor.cloudronapp/tandoor_00.png"
+  ],
   "postInstallMessage": "file://POSTINSTALL.md",
   "changelog": "file://CHANGELOG.md",
   "minBoxVersion": "7.3.0",
