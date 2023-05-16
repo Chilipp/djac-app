@@ -28,5 +28,6 @@
   "postInstallMessage": "file://POSTINSTALL.md",
   "changelog": "file://CHANGELOG.md",
   "minBoxVersion": "7.4.2",
+  "forumUrl": "https://forum.cloudron.io/category/163/tandoor",
   "documentationUrl": "https://docs.cloudron.io/apps/tandoor/"
 }
