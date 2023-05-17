@@ -4,7 +4,7 @@
   "author": "https://tandoor.dev",
   "description": "file://DESCRIPTION.md",
   "tagline": "Recipe Management",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "upstreamVersion": "1.4.9",
   "memoryLimit": 1073741824,
   "healthCheckPath": "/",
