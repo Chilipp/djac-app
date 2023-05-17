@@ -7,7 +7,7 @@ echo "=> Starting Tandoor"
 echo "=> Creating directories"
 mkdir -p /run/tandoor /run/nginx \
         /app/data/data/staticfiles \
-        /app/data/data/media
+        /app/data/data/mediafiles
 
 echo "=> Get secret key"
 if [[ ! -f /app/data/.secret_key ]]; then

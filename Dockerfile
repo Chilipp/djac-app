@@ -59,7 +59,7 @@ WORKDIR /app/code/tandoor
 RUN mv /app/code/tandoor/cookbook/static /app/pkg/static && \
     ln -sf /run/tandoor/static /app/code/tandoor/cookbook/static && \
     ln -sf /app/data/data/staticfiles /app/code/tandoor/staticfiles && \
-    ln -sf /app/data/data/media /app/code/tandoor/media && \
+    ln -sf /app/data/data/mediafiles /app/code/tandoor/mediafiles && \
     ln -sf /run/tandoor/.env /app/code/tandoor/.env
 
 RUN chown -R cloudron:cloudron /app/code
