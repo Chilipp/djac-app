@@ -1,1 +1,1 @@
-This app is requires a superadmin account created at first run.
+On first visit, you can create a Tandoor superuser.
