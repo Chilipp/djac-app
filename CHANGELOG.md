@@ -12,3 +12,10 @@
 * updated django and fixed file upload (thanks to ambroisie #2458)
 * updated translations
 
+[0.4.0]
+* Update Tandoor to 1.4.11
+* [Full changelog](https://github.com/TandoorRecipes/recipes/releases/tag/1.4.11)
+* added noindex to header to prevent indexing content by search engines (thanks to screendriver #2435)
+* added ability to set gunicorn logging parameter to .env (thanks to gloriousDan #2470)
+* improved plugin functionality
+
