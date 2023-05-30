@@ -19,3 +19,11 @@
 * added ability to set gunicorn logging parameter to .env (thanks to gloriousDan #2470)
 * improved plugin functionality
 
+[1.0.0]
+* First stable package release
+* Update Tandoor to 1.4.12
+* [Full changelog](https://github.com/TandoorRecipes/recipes/releases/tag/1.4.12)
+* added allow plugins to define dropdown nav entries
+* fixed json importer not working since its missing source_url attribute
+* updated open data plugin
+
