@@ -7,7 +7,7 @@ RUN mkdir -p /app/code/tandoor /app/pkg ${VENV_PATH}
 
 WORKDIR /app/code/tandoor
 
-ARG VERSION=1.4.12
+ARG VERSION=1.5.0
 
 RUN wget https://github.com/TandoorRecipes/recipes/archive/refs/tags/${VERSION}.tar.gz -O - | \
     tar -xz --strip-components 1 -C /app/code/tandoor

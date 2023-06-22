@@ -27,3 +27,29 @@
 * fixed json importer not working since its missing source_url attribute
 * updated open data plugin
 
+[1.1.0]
+* Update Tandoor to 1.5.0
+* [Full changelog](https://github.com/TandoorRecipes/recipes/releases/tag/1.5.0)
+* added unit conversion
+* tandoor can now automatically convert your ingredients to different units
+* conversion between all common metric and imperial units works automatically (within either weight or volume)
+* conversions to convert between weight and volume for certain foods or to convert between special units (like pcs or your favourite cup) can be added manually
+* currently conversions are used for property calculation, in the future many more features are possible with this
+* added food properties
+* every food can have different properties like nutrition, price, allergens or whatever you like to track
+* these properties are then automatically calculated for every individual recipe
+* the URL importer now automatically imports nutrition information properties from websites if possible
+* in the future this can be integrated into different modules like shopping (price) or meal plans (nutrition)
+* added open data importer
+* The Tandoor Open Data Project aims to provide a community curated list of basic data for your tandoor instance
+* Feel free to participate in its growth to help everyone improve their Tandoor workflows
+* improved food editor (much cleaner, supports new features)
+* added admin options to delete unused steps and ingredients (thanks to @smilerz #2488)
+* added Norwegian to available languages #2487
+* fixed hide bottom navigation in print view (thanks to jwr1 #2478)
+* fixed url import edge case with arrays as names #2429
+* fixed HowToSteps in Nextcloud Cookbook imports #2428
+* fixed edge cases with the rezeptsuite importer #2467
+* fixed recipesage servings and time import
+* improved lots of functionality regarding plugins (still otherwise undocumented as very early stages)
+
