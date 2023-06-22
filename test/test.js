@@ -87,7 +87,7 @@ describe('Application life cycle test', function () {
         if (await browser.findElements(By.xpath('//input[@name="username"]')).then(found => !!found.length)) {
             await browser.findElement(By.xpath('//input[@name="username"]')).sendKeys(username);
             await browser.findElement(By.xpath('//input[@name="password"]')).sendKeys(password);
-            await browser.findElement(By.xpath('//button[@type="submit" and contains(text(), "Log in")]')).click();
+            await browser.findElement(By.xpath('//button[@type="submit" and contains(text(), "Sign in")]')).click();
             await browser.sleep(2000);
         }
 
