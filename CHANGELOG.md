@@ -53,3 +53,9 @@
 * fixed recipesage servings and time import
 * improved lots of functionality regarding plugins (still otherwise undocumented as very early stages)
 
+[1.1.1]
+* Update Tandoor to 1.5.1
+* [Full changelog](https://github.com/TandoorRecipes/recipes/releases/tag/1.5.1)
+* fixed meal plan view
+* fixed error with keyword automation
+
