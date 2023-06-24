@@ -59,3 +59,9 @@
 * fixed meal plan view
 * fixed error with keyword automation
 
+[1.1.2]
+* Update Tandoor to 1.5.2
+* [Full changelog](https://github.com/TandoorRecipes/recipes/releases/tag/1.5.2)
+* fixed merging foods would delete all food properties #2513
+* fixed uniqueness check failing with open data slug models #2512
+
