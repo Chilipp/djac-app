@@ -65,3 +65,14 @@
 * fixed merging foods would delete all food properties #2513
 * fixed uniqueness check failing with open data slug models #2512
 
+[1.1.3]
+* Update Tandoor to 1.5.3
+* [Full changelog](https://github.com/TandoorRecipes/recipes/releases/tag/1.5.3)
+* improved don't show the properties view if no property types are present in space
+* improved automatically adding schema specific attributes if not present in json importer #2426
+* fixed issue with not begin able to add decimal amounts in property values #2518
+* fixed issue when creating food and adding properties at the same time
+* fixed text color in nav to light for some background colors
+* fixed broken images could fail the tandoor importer
+* added TrueNAS Portainer installation instructions to the docs (thanks to 16cdlogan #2517)
+
