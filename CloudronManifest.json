@@ -12,7 +12,7 @@
   "addons": {
     "localstorage": {},
     "postgresql": {},
-    "sendmail": {},
+    "sendmail": { "supportsDisplayName": false },
     "oidc": {
       "loginRedirectUri": "/accounts/cloudron/login/callback/"
     }
