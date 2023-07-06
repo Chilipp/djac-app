@@ -76,3 +76,20 @@
 * fixed broken images could fail the tandoor importer
 * added TrueNAS Portainer installation instructions to the docs (thanks to 16cdlogan #2517)
 
+[1.1.4]
+* Update Tandoor to 1.5.4
+* [Full changelog](https://github.com/TandoorRecipes/recipes/releases/tag/1.5.4)
+* added default valid_until date for invite links
+* added ability to add a note to invite links which is transferred to the space permission for later recognition
+* added experimental dark theme (does not work yet on many pages)
+* improved query performance of shopping list (should be significantly faster on large lists)
+* improved show optional fields in generic forms
+* improved source_url is now included in recipe exports (thanks michael-genson to #2531)
+* improved added filtering to some commonly used administrative admin pages
+* fixed navbar color for non logged in users
+* fixed issue when importing lists of ingredients with empty rows #2519
+* fixed an issue with the food editor always showing "g" as the properties unit #2518
+* fixed error message when no plugins are installed
+* updated base alpine version to 3.18 to fix raspi builds (thanks to @gloriousDan #2522)
+* updated docs to add some notes to default docker compose files and update pg version (thanks @gloriousDan to #2521)
+
