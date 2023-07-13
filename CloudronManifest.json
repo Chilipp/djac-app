@@ -4,7 +4,7 @@
   "author": "https://github.com/AnjaWurli/bikeWeiter",
   "description": "file://DESCRIPTION.md",
   "tagline": "Display what you can reach by bike",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "upstreamVersion": "0.0.1",
   "memoryLimit": 1073741824,
   "healthCheckPath": "/",
@@ -13,6 +13,7 @@
     "localstorage": {},
     "postgresql": {},
     "sendmail": { "supportsDisplayName": false },
+    "redis": { "noPassword": true },
     "oidc": {
       "loginRedirectUri": "/accounts/cloudron/login/callback/"
     }

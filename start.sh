@@ -44,6 +44,8 @@ DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
 
 DATABASE_URL=postgresql://${CLOUDRON_POSTGRESQL_USERNAME}:${CLOUDRON_POSTGRESQL_PASSWORD}@${CLOUDRON_POSTGRESQL_HOST}:${CLOUDRON_POSTGRESQL_PORT}/${CLOUDRON_POSTGRESQL_DATABASE}
 
+CACHE_URL=redis://${CLOUDRON_REDIS_HOST}:${CLOUDRON_REDIS_PORT}/0?client_class=django_redis.client.DefaultClient
+
 # Email Settings, see https://docs.djangoproject.com/en/3.2/ref/settings/#email-host
 # Required for email confirmation and password reset (automatically activates if host is set)
 EMAIL_URL=smtp+ssl://${CLOUDRON_MAIL_SMTP_USERNAME}:${CLOUDRON_MAIL_SMTP_PASSWORD}@${CLOUDRON_MAIL_SMTP_SERVER}:${CLOUDRON_MAIL_SMTPS_PORT}
