@@ -1,11 +1,11 @@
 {
-  "id": "dev.tandoor.cloudronapp",
-  "title": "Tandoor",
-  "author": "https://tandoor.dev",
+  "id": "dev.bikeweite.cloudronapp",
+  "title": "bikeWeite",
+  "author": "https://github.com/AnjaWurli/bikeWeiter",
   "description": "file://DESCRIPTION.md",
-  "tagline": "Recipe Management",
-  "version": "1.1.4",
-  "upstreamVersion": "1.5.4",
+  "tagline": "Display what you can reach by bike",
+  "version": "0.0.1",
+  "upstreamVersion": "0.0.1",
   "memoryLimit": 1073741824,
   "healthCheckPath": "/",
   "httpPort": 80,
@@ -18,16 +18,10 @@
     }
   },
   "manifestVersion": 2,
-  "website": "https://tandoor.dev",
-  "contactEmail": "support@cloudron.io",
-  "icon": "file://logo.png",
-  "tags": [ "recipe", "household", "food", "cooking", "cookbook", "meal-planner" ],
-  "mediaLinks": [
-    "https://screenshots.cloudron.io/dev.tandoor.cloudronapp/tandoor_00.png"
-  ],
+  "website": "https://github.com/AnjaWurli/bikeWeiter",
+  "contactEmail": "philipp.sommer@hereon.de",
+  "tags": [ "bike", "mobility" ],
   "postInstallMessage": "file://POSTINSTALL.md",
   "changelog": "file://CHANGELOG.md",
-  "minBoxVersion": "7.4.2",
-  "forumUrl": "https://forum.cloudron.io/category/163/tandoor",
-  "documentationUrl": "https://docs.cloudron.io/apps/tandoor/"
+  "minBoxVersion": "7.4.2"
 }

@@ -1,1 +1,1 @@
-On first visit, you can create a Tandoor superuser.
+On first visit, you can create a bikeWeite superuser.
