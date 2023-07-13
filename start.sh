@@ -19,6 +19,7 @@ export GUNICORN_PORT=8080
 export GUNICORN_WORKERS=3
 export GUNICORN_THREADS=2
 export DJANGO_READ_DOT_ENV_FILE="true"
+export MPLCONFIGDIR="/app/data/.config/matplotlib"
 
 
 if [ ! -f /app/data/.env ]; then
