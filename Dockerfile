@@ -1,4 +1,4 @@
-FROM cloudron/base:4.0.0@sha256:31b195ed0662bdb06a6e8a5ddbedb6f191ce92e8bee04c03fb02dd4e9d0286df
+FROM docker.io/cloudron/base:4.0.0@sha256:31b195ed0662bdb06a6e8a5ddbedb6f191ce92e8bee04c03fb02dd4e9d0286df
 
 ENV PYTHONUNBUFFERED 1
 ENV VENV_PATH="/app/code/.venv"
@@ -19,7 +19,7 @@ RUN apt-get update && \
 
 RUN source ${VENV_PATH}/bin/activate && \
     ${VENV_PATH}/bin/python -m pip install --upgrade pip pipenv && \
-    ${VENV_PATH}/bin/pipenv install --deploy
+    ${VENV_PATH}/bin/pipenv install --extra-pip-args='--no-cache-dir' 
 
 RUN python manage.py collectstatic --no-input && \
     ln -sf /run/djac/.env /app/code/djac/.env
