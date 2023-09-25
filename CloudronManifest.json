@@ -1,11 +1,11 @@
 {
-  "id": "dev.bikeweite.cloudronapp",
-  "title": "bikeWeite",
-  "author": "https://github.com/AnjaWurli/bikeWeiter",
+  "id": "dev.djac.cloudronapp",
+  "title": "DJAC",
+  "author": "https://codebase.helmholtz.cloud/hcdc/django/clm-community/django-academic-community/",
   "description": "file://DESCRIPTION.md",
-  "tagline": "Display what you can reach by bike",
+  "tagline": "A Django app to manage members, topics, events, chats and more in an academic community",
   "version": "0.0.2",
-  "upstreamVersion": "0.0.1",
+  "upstreamVersion": "0.0.1.dev0+130.g681ee3d8",
   "memoryLimit": 1073741824,
   "healthCheckPath": "/",
   "httpPort": 80,
@@ -16,12 +16,29 @@
     "redis": { "noPassword": true },
     "oidc": {
       "loginRedirectUri": "/accounts/cloudron/login/callback/"
+    },
+    "scheduler": {
+      "update_feeds": {
+        "schedule": "*/1 * * * *",
+        "command": "python manage.py runjobs minutely"
+      }
     }
   },
   "manifestVersion": 2,
-  "website": "https://github.com/AnjaWurli/bikeWeiter",
+  "website": "https://codebase.helmholtz.cloud/hcdc/django/clm-community/django-academic-community",
   "contactEmail": "philipp.sommer@hereon.de",
-  "tags": [ "bike", "mobility" ],
+  "tags": [
+    "django",
+    "collaboration",
+    "science",
+    "social",
+    "chat",
+    "end-to-end",
+    "e2ee",
+    "events",
+    "topics",
+    "groups"
+  ],
   "postInstallMessage": "file://POSTINSTALL.md",
   "changelog": "file://CHANGELOG.md",
   "minBoxVersion": "7.4.2"

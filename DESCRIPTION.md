@@ -1,3 +1,3 @@
 ### Overview
 
-Display what you can reach by bike on a map.
+A Django app to manage members, topics and more in an academic community

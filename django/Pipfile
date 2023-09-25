@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+url = "https://codebase.helmholtz.cloud/api/v4/groups/3377/-/packages/pypi/simple"
+verify_ssl = true
+name = "hcdc"
+
+[packages]
+Django = "==3.2.*"
+psycopg2-binary = "*"
+django-redis = "*"
+django-environ = "*"
+'channels[daphne]' = {version = "*"}
+channels_redis = {version = "*"}
+django-allauth = "*"
+
+django-academic-community = {version="==0.0.1.dev0+130.g681ee3d8", index="hcdc"}
+django-e2ee-framework = {version="==0.0.*", index="hcdc"}
+reportlab = "==3.6.*"
+
+[dev-packages]
+pre-commit = ">=2.9.2"
+mypy = ">=1.2.0"
+django-stubs = "==4.2.0"
+black = "==22.3.0"
+isort = "==5.12.0"
+flake8 = "==6.0.0"
+reuse = "==1.1.2"

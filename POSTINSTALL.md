@@ -1,1 +1,1 @@
-On first visit, you can create a bikeWeite superuser.
+On first visit, you can create a DJAC superuser.
