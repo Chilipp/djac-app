@@ -5,6 +5,11 @@ ENV VENV_PATH="/app/code/.venv"
 
 RUN mkdir -p /app/code/djac /app/pkg ${VENV_PATH}
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends musl-dev libwebp-dev cargo libldap-common && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app/code/djac
 
 ADD django /app/code/djac
@@ -12,14 +17,9 @@ ADD django /app/code/djac
 RUN virtualenv -p /usr/bin/python3.10 ${VENV_PATH}
 ENV PATH=${VENV_PATH}/bin:$PATH
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends musl-dev libwebp-dev cargo libldap-common && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN source ${VENV_PATH}/bin/activate && \
-    ${VENV_PATH}/bin/python -m pip install --upgrade pip pipenv && \
-    ${VENV_PATH}/bin/pipenv install --extra-pip-args='--no-cache-dir' 
+RUN . ${VENV_PATH}/bin/activate && \
+    ${VENV_PATH}/bin/python -m pip install pipenv && \
+    ${VENV_PATH}/bin/pipenv install
 
 RUN python manage.py collectstatic --no-input && \
     ln -sf /run/djac/.env /app/code/djac/.env

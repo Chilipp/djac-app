@@ -201,13 +201,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATICFILES_DIRS: List[str] = [str(BASE_DIR.absolute() / "static-files")]
-
 STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-BASE_MEDIA = Path(env("BASE_MEDIA_FOLDER", str(BASE_DIR / "media")))
+BASE_MEDIA = Path(env("BASE_MEDIA_FOLDER", default=str(BASE_DIR / "media")))
 
 MEDIA_ROOT = BASE_MEDIA / "public"
 
