@@ -5,7 +5,7 @@ set -eu
 echo "=> Starting DJAC"
 
 echo "=> Creating directories"
-mkdir -p /run/djac /run/nginx
+mkdir -p /run/djac /run/nginx /app/data/media/public /app/data/media/internal
 
 echo "=> Get secret key"
 if [[ ! -f /app/data/.secret_key ]]; then
